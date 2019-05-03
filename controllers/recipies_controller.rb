@@ -44,22 +44,47 @@ class RecipiesController < Sinatra::Base
 
   #new
   get "/new" do
-    "new page"
+    @recipie = {
+      id: "",
+      title: "",
+      image: "",
+      ingredients: "",
+      method: ""
+    }
+
+    erb :'recipies/new'
   end
 
   #create
   post "/" do
-    "create new recipie"
+    new_recipie = {
+      id: $recipies.length,
+      title: params[:title],
+      image: params[:image],
+      ingredients: params[:ingredients],
+      method: params[:method]
+    }
+
+    $recipies.push(new_recipie)
+
+    redirect "/"
+
   end
 
   #show
   get "/:id" do
-    "show recipie with id "
+    id = params[:id].to_i
+
+    @recipie = $recipies[id]
+
+    erb :'recipies/show'
   end
 
   #edit
   get "/:id/edit" do
-    "edit this recipie"
+    @recipie = $recipies[id]
+
+    erb :'recipies/edit'
   end
 
   #update
