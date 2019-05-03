@@ -23,14 +23,12 @@ class RecipiesController < Sinatra::Base
     method: "Cooking instructions"
   },
   {
-    id: 3,
+    id: 2,
     title: "Recipie 3",
     image: "https://picsum.photos/id/488/200",
     ingredients: "List of ingredients",
     method: "Cooking instructions"
   }]
-
-
 
 
   #index
@@ -44,6 +42,7 @@ class RecipiesController < Sinatra::Base
 
   #new
   get "/new" do
+
     @recipie = {
       id: "",
       title: "",
@@ -82,6 +81,8 @@ class RecipiesController < Sinatra::Base
 
   #edit
   get "/:id/edit" do
+    id = params[:id].to_i
+
     @recipie = $recipies[id]
 
     erb :'recipies/edit'
@@ -89,12 +90,28 @@ class RecipiesController < Sinatra::Base
 
   #update
   put "/:id" do
-    "update recipie"
+    id = params[:id].to_i
+
+    recipie = $recipies[id]
+
+    recipie[:title] = params[:title]
+    recipie[:image] = params[:image]
+    recipie[:ingredients] = params[:ingredients]
+    recipie[:method] = params[:method]
+
+    $recipies[id] = recipie
+
+
+    redirect "/"
   end
 
   #delete
   delete "/:id" do
-    "delete this recipie"
+    id = params[:id].to_i
+
+    $recipies.delete_at(id)
+
+    redirect "/"
   end
 
 
