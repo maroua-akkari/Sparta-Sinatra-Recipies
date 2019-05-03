@@ -1,0 +1,19 @@
+<h1><%= @recipie[:title] %></h1>
+
+<img src=<%= @recipie[:image] %>>
+<h3>Ingredients:</h3>
+<ul>
+<li><%= @recipie[:ingredients] %></li>
+</ul>
+<h3>Method:</h3>
+<ol>
+<li><%= @recipie[:method] %></li>
+</ol>
+
+<a href="/<%= @recipie[:id] %>/edit">Edit</a>
+
+<form action="/<%= @recipie[:id] %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+
+</form>
