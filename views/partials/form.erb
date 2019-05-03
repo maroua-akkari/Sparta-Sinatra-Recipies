@@ -6,12 +6,14 @@
 
   <div>
     <label>Image</label>
-    <input name="image" placeholder="Insert a link to your dish picture"><%= @recipie[:image] %></input>
+    <textarea name="image" rows="2" cols="80" placeholder="Insert a link to your dish picture"><%= @recipie[:image] %></textarea>
   </div>
+
   <div>
     <label>Ingredients</label>
     <textarea name="ingredients" rows="8" cols="80" placeholder="List the ingredients neeeded to make your dish here"><%= @recipie[:ingredients] %></textarea>
   </div>
+
   <div>
     <label>Method</label>
     <textarea name="method" rows="8" cols="80" placeholder="Put the instructions to make this recipie here"><%= @recipie[:method] %></textarea>
