@@ -1,7 +1,3 @@
-require 'sinatra'
-require 'sinatra/contrib'
-require_relative './controllers/recipies_controller'
+require_relative './app'
 
-use Rack::MethodOverride
-
-run RecipiesController
+run App
