@@ -8,110 +8,82 @@ class RecipiesController < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  $recipies = [{
-    id: 0,
-    title: "Recipie 1",
-    image: "https://picsum.photos/id/835/200",
-    ingredients: "List of ingredients",
-    method: "Cooking instructions"
-  },
-  {
-    id: 1,
-    title: "Recipie 2",
-    image: "https://picsum.photos/id/292/200",
-    ingredients: "List of ingredients",
-    method: "Cooking instructions"
-  },
-  {
-    id: 2,
-    title: "Recipie 3",
-    image: "https://picsum.photos/id/488/200",
-    ingredients: "List of ingredients",
-    method: "Cooking instructions"
-  }]
-
 
   #index
-  get "/" do
+  get "/recipies" do
     @title = "Happy baking!"
 
-     @recipies = $recipies
+     @recipies = Recipie.all
 
     erb :'recipies/index'
   end
 
   #new
-  get "/new" do
+  get "/recipies/new" do
 
-    @recipie = {
-      id: "",
-      title: "",
-      image: "",
-      ingredients: "",
-      method: ""
-    }
+    @recipie = Recipie.new
 
     erb :'recipies/new'
   end
 
   #create
-  post "/" do
-    new_recipie = {
-      id: $recipies.length,
-      title: params[:title],
-      image: params[:image],
-      ingredients: params[:ingredients],
-      method: params[:method]
-    }
+  post "/recipies" do
 
-    $recipies.push(new_recipie)
+    recipie = Recipie.new
 
-    redirect "/"
+    recipie.title = params[:title]
+    recipie.image = params[:image]
+    recipie.ingredients = params[:ingredients]
+    recipie.method = params[:method]
+
+    recipie.save
+
+    redirect "/recipies"
 
   end
 
   #show
-  get "/:id" do
+  get "/recipies/:id" do
     id = params[:id].to_i
 
-    @recipie = $recipies[id]
+    @recipie = Recipie.find(id)
 
     erb :'recipies/show'
   end
 
   #edit
-  get "/:id/edit" do
+  get "/recipies/:id/edit" do
     id = params[:id].to_i
 
-    @recipie = $recipies[id]
+    @recipie = Recipie.find(id)
 
     erb :'recipies/edit'
   end
 
   #update
-  put "/:id" do
+  put "/recipies/:id" do
     id = params[:id].to_i
 
-    recipie = $recipies[id]
+    recipie = Recipie.find(id)
 
-    recipie[:title] = params[:title]
-    recipie[:image] = params[:image]
-    recipie[:ingredients] = params[:ingredients]
-    recipie[:method] = params[:method]
+    recipie.title = params[:title]
+    recipie.image = params[:image]
+    recipie.ingredients = params[:ingredients]
+    recipie.method = params[:method]
 
-    $recipies[id] = recipie
+    recipie.save
 
 
-    redirect "/"
+    redirect "/recipies"
   end
 
   #delete
-  delete "/:id" do
+  delete "/recipies/:id" do
     id = params[:id].to_i
 
-    $recipies.delete_at(id)
+    Recipie.destroy(id)
 
-    redirect "/"
+    redirect "/recipies"
   end
 
 

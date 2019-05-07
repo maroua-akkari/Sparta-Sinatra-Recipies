@@ -1,0 +1,60 @@
+body {
+  background-image: url("/images/background-img.png");
+}
+
+.side-col {
+  float: right;
+  width: 22%;
+  height: 500px;
+  border: 1px black solid;
+  padding-bottom: 50px;
+}
+
+.jokes h2, p {
+  text-align: center;
+  padding-bottom: 5px;
+  padding: 5px;
+}
+
+.joke {
+  margin-top: 30px;
+  font-family: 'Abel', sans-serif;
+  font-size: 22px;
+}
+
+.page-header h1 {
+  text-align: center;
+  font-family: 'Chewy', cursive;
+  background-color: grey;
+  padding: 20px;
+}
+
+.header {
+  font-family: 'Francois One', sans-serif;
+  font-size: 20px;
+}
+
+.myNav li {
+  font-family: 'Francois One', sans-serif;
+  font-size: 20px;
+}
+
+h2, h3 {
+  font-family: 'Francois One', sans-serif;
+}
+
+
+.categories h3 {
+  text-align: center;
+}
+
+
+.recipesIndex {
+  text-align: center;
+}
+
+
+.myButton {
+  color: white;
+  margin-bottom: 10px;
+}

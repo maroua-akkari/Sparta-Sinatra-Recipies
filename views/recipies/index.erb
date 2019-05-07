@@ -1,13 +1,14 @@
-<h1>Happy baking!</h1>
+<div class="page-header">
+  <h1>Check out all these wonderful recipes!</h1>
+</div>
+
+
+
 <% @recipies.each do |recipie| %>
-<div>
-  <h3>
-    <a href="/<%= recipie[:id] %>"><%= recipie[:title] %></a>
-    <div><img src=<%= recipie[:image] %>></div>
-    <h3>Ingredients:</h3>
-    <p><%= recipie[:ingredients] %></p>
-    <h3>Method:</h3>
-    <p><%= recipie[:method] %></p>
-  </h3>
+<div class="recipesIndex">
+<div class="row">
+  <h3><a href="/recipies/<%= recipie.id %>"><%= recipie.title %></a></h3>
+    <img src=<%= recipie.image %>>
 </div>
 <% end %>
+</div>

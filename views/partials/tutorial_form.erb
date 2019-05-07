@@ -1,0 +1,25 @@
+<div class="recipesIndex">
+<form action="/tutorials" method="post">
+  <div>
+    <label class="header">Tutorial name</label>
+    <div>
+    <textarea type="text" name="title" rows="1" cols="40" placeholder="Enter the name of your dish"></textarea>
+    </div>
+  </div>
+  <div>
+    <label class="header">Video</label>
+    <div>
+    <textarea name="video" rows="4" cols="80" placeholder="Insert a link to your video tutorial"></textarea>
+    </div>
+  </div>
+
+
+
+  <div>
+    <button type="submit" class="btn btn-primary myButton" name="button" value="SAVE">Save recipe</button>
+  </div>
+
+  <input type="hidden" name="_method" value="put">
+
+</form>
+</div>

@@ -1,28 +1,38 @@
-<form action="/<%= @recipie[:id] %>" method="post">
+<div class="recipesIndex">
+<form action="/recipies/<%= @recipie.id %>" method="post">
   <div>
-    <label>Dish name</label>
-    <input type="text" name="title" placeholder="Enter the name of your dish" value="<%= @recipie[:title] %>">
+    <label class="header">Dish name</label>
+    <div>
+    <textarea type="text" name="title" rows="1" cols="40" placeholder="Enter the name of your dish"><%= @recipie.title %></textarea>
+    </div>
   </div>
 
   <div>
-    <label>Image</label>
-    <textarea name="image" rows="2" cols="80" placeholder="Insert a link to your dish picture"><%= @recipie[:image] %></textarea>
+    <label class="header">Image</label>
+    <div>
+    <textarea name="image" rows="2" cols="80" placeholder="Insert a link to your dish picture"><%= @recipie.image %></textarea>
+    </div>
   </div>
 
   <div>
-    <label>Ingredients</label>
-    <textarea name="ingredients" rows="8" cols="80" placeholder="List the ingredients neeeded to make your dish here"><%= @recipie[:ingredients] %></textarea>
+    <label class="header">Ingredients</label>
+    <div>
+    <textarea name="ingredients" rows="6" cols="80" placeholder="List the ingredients neeeded to make your dish here"><%= @recipie.ingredients %></textarea>
+    </div>
   </div>
 
   <div>
-    <label>Method</label>
-    <textarea name="method" rows="8" cols="80" placeholder="Put the instructions to make this recipie here"><%= @recipie[:method] %></textarea>
+    <label class="header">Method</label>
+    <div>
+    <textarea name="method" rows="6" cols="80" placeholder="Put the instructions to make this recipie here"><%= @recipie.method %></textarea>
+    </div>
   </div>
 
   <div>
-    <input type="submit" value="Save recipie">
+    <button type="submit" class="btn btn-primary myButton" name="button" value="SAVE">Save recipe</button>
   </div>
-  <% if(@recipie[:id] != "") %>
+  <% if(@recipie.id) %>
   <input type="hidden" name="_method" value="put">
   <% end %>
 </form>
+</div>

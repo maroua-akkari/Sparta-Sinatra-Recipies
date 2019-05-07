@@ -1,19 +1,23 @@
-<h1><%= @recipie[:title] %></h1>
+<div class="page-header">
+<h1><%= @recipie.title %></h1>
+</div>
 
-<img src=<%= @recipie[:image] %>>
-<h3>Ingredients:</h3>
-<ul>
-<li><%= @recipie[:ingredients] %></li>
-</ul>
-<h3>Method:</h3>
-<ol>
-<li><%= @recipie[:method] %></li>
-</ol>
+<div class="recipesIndex">
+  <img src=<%= @recipie.image %>>
+  <h3>Ingredients:</h3>
+      <p><%= @recipie.ingredients %></p>
+  <h3>Method:</h3>
+      <p><%= @recipie.method %></p>
 
-<a href="/<%= @recipie[:id] %>/edit">Edit</a>
 
-<form action="/<%= @recipie[:id] %>" method="post">
+
+  <button type="button" class="btn btn-primary myButton" name="button"><a class="myButton" href="/recipies/<%= @recipie.id %>/edit">Edit</a></button>
+
+  <div class="">
+  <form action="/recipies/<%= @recipie.id %>" method="post">
   <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="delete">
+  <button type="submit" class="btn btn-primary myButton" name="button" value="DELETE">DELETE</button>
+  </form>
+    </div>
 
-</form>
+</div>

@@ -1,4 +1,21 @@
-<nav>
-  <a href="/">Recipies</a>
-  <a href="/new">Add New Recipie</a>
-</nav>
+  <ul class="nav nav-tabs myNav">
+    <li role="presentation"><a href="/">Categories</a></li>
+    <li role="presentation" class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="/recipies" role="button" aria-haspopup="true" aria-expanded="false">
+        Recipes <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu myNav">
+        <li role="presentation"><a href="/recipies">All recipes</a></li>
+        <li role="presentation"><a href="/recipies/new">Add new recipe</a></li>
+      </ul>
+    </li>
+    <li role="presentation" class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="/tutorials" role="button" aria-haspopup="true" aria-expanded="false">
+        Tutorials <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu myNav">
+        <li role="presentation"><a href="/tutorials">All tutorials</a></li>
+        <li role="presentation"><a href="/tutorials/new">Add new tutorial</a></li>
+      </ul>
+    </li>
+  </ul>
